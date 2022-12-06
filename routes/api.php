@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\SendMail\SendMailController;
 use App\Http\Controllers\Api\Services\ServiceController;
@@ -70,4 +71,15 @@ Route::prefix('authantiked')->group(function () {
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::get('link', function () {
+
+    return Response::json([
+        'tel'=>93266004,
+        'email'=>'komlan@gamil.com',
+        'url'=>'http://www.gamil.com',
+        'map'=>'http://www.gamil.com'
+    ]);
 });
