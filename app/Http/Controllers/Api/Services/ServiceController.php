@@ -29,7 +29,7 @@ class ServiceController extends Controller
 
               try {
                 $validator =Validator::make($request->all(),[
-                    'name'=>'required',
+                    'name'=>'required|unique:services,name',
                ]);
                //code...
                if($validator->fails()){

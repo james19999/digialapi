@@ -31,7 +31,7 @@ class SubServiceController extends Controller
 
               try {
                 $validator =Validator::make($request->all(),[
-                    'name'=>'required',
+                    'name'=>'required|unique:sub_services,name',
                     'service_id'=>'required',
                ]);
                //code...

@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('sub_services', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->foreignIdFor(Service::class);
             $table->timestamps();
         });
