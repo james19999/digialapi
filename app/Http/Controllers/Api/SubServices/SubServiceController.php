@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\SubServices;
 
+use App\Models\User;
 use App\Models\SubService;
 use Illuminate\Http\Request;
+use App\Mail\NewSubscription;
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -40,6 +42,7 @@ class SubServiceController extends Controller
 
                }else{
                 SubService::create(['name'=>$request->name ,'service_id'=>$request->service_id]);
+
                    return response()->json(['Message' =>'service create']);
                }
               } catch (\Throwable $th) {
@@ -100,6 +103,7 @@ class SubServiceController extends Controller
    if($User){
 
        $User->subservices()->sync($request->sub_service_id);
+       Mail::to('Komalan@gamil.com')->send(new NewSubscription($User->email,$User->name,$User->phone));
        return response()->json(['Message' =>"success" ,'status'=>true,'data'=>$Users]);
    }else{
        return response()->json(['Message' =>"errors"]);
