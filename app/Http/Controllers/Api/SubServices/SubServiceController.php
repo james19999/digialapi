@@ -103,7 +103,7 @@ class SubServiceController extends Controller
    if($User){
 
        $User->subservices()->sync($request->sub_service_id);
-       Mail::to('Komalan@gamil.com')->send(new NewSubscription($User->email,$User->name,$User->phone));
+       Mail::to('komlanahiakpor23@gmail.com')->send(new NewSubscription($User->email,$User->name,$User->phone));
        return response()->json(['Message' =>"success" ,'status'=>true,'data'=>$Users]);
    }else{
        return response()->json(['Message' =>"errors"]);
