@@ -92,8 +92,8 @@ Route::get('link', function () {
 
     return Response::json([
         'tel'=>93266004,
-        'email'=>'komlan@gamil.com',
-        'url'=>'http://www.gamil.com',
+        'telwha'=>'https://chat.whatsapp.com/INvSZoiQFpbB35B1apmBtg',
+        'facebook'=>'http://www.gamil.com',
         'map'=>'http://www.gamil.com'
     ]);
 });
