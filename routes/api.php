@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\SendMail\SendMailController;
+use App\Http\Controllers\Api\Contrat\ContratController;
 use App\Http\Controllers\Api\Services\ServiceController;
 use App\Http\Controllers\Api\SubServices\SubServiceController;
+use App\Http\Controllers\Api\Reclamation\ReclamationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +67,18 @@ Route::prefix('authantiked')->group(function () {
 
     Route::post('logout', [AdminController::class,'logout_user']);
     });
+
+});
+//code... contrat
+Route::prefix('contrats')->group(function () {
+
+   Route::post('create/contrat',[ContratController::class,'create_contrat']);
+
+});
+//code... réclamation
+Route::prefix('reclamations')->group(function () {
+
+   Route::post('create/reclamation',[ReclamationController::class,'create_reclamation']);
 
 });
 
