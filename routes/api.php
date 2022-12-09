@@ -64,6 +64,8 @@ Route::prefix('authantiked')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('create/subscribption',[SubServiceController::class,'subscribption']);
+   Route::post('create/email',[ReclamationController::class,'create_contact']);
+
 
     Route::post('logout', [AdminController::class,'logout_user']);
     });

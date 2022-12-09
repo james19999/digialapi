@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\Reclamation;
 
+use App\Mail\Contact;
 use App\Models\Contrat;
+use App\Models\Reclamation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Reclamation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -54,5 +56,29 @@ class ReclamationController extends Controller
               return $Contra->code_contrat;
          }
 
+    }
+
+//create a new Contact
+
+    public function create_contact(Request $request){
+         try {
+            $validator =Validator::make($request->all(),[
+                'subject'=>'required',
+                'msg'=>'required',
+          ]);
+             if ($validator->fails()) {
+             return  Response::json(['status' =>false,'massage' =>$validator->getMessageBag()]);
+
+             }else{
+
+                 $user=Auth::user();
+
+                 Mail::to('komlanahiakpor23@gmail.com')->send( new Contact($user->email,$user->name,$request->subject,$request->msg));
+             }
+             return  Response::json(['status' =>true,'massage' =>"success"]);
+
+         } catch (\Throwable $th) {
+             return  Response::json(['status' =>false,'massage' =>"$th"]);
+         }
     }
 }
