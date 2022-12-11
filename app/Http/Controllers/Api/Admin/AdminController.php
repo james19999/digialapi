@@ -57,40 +57,47 @@ class AdminController extends Controller
    }
 
    public function login_user(Request $request) {
-    $Validator=Validator::make($request->all(),[
-        // 'email'=>'required|email',
-        'password'=>'required',
 
-    ]);
-     if ($Validator->fails()) {
+        try {
+            //code...
+            $Validator=Validator::make($request->all(),[
+                // 'email'=>'required|email',
+                'password'=>'required',
 
-        return Response::json([
-             'status'=>true,
-             'message'=>$Validator->getMessageBag(),
-        ]);
-     }else{
-          $user=User::where('email',$request->email)->orwhere('phone',$request->phone)->first();
-
-          if(! $user || ! Hash::check($request->password, $user->password)){
-            return response()->json([
-                'status'=>404,
-                'errors'=>'Vérifiez vos informations de connexion',
             ]);
-          }else{
-            $token=$user->createToken($user)->plainTextToken;
-            return Response::json([
-                'status'=>false,
-                'message'=>"success",
-                'name'=>$user->name,
-                'email'=>$user->email,
-                'type'=>$user->type,
-                'phone'=>$user->phone,
-                'personne'=>$user->personne,
-                'id'=>$user->id,
-                'token'=>$token,
-           ]);
-          }
-     }
+             if ($Validator->fails()) {
+
+                return Response::json([
+                     'status'=>true,
+                     'message'=>$Validator->getMessageBag(),
+                ]);
+             }else{
+                  $user=User::where('email',$request->email)->orwhere('phone',$request->phone)->first();
+
+                  if(! $user || ! Hash::check($request->password, $user->password)){
+                    return response()->json([
+                        'status'=>404,
+                        'errors'=>'Vérifiez vos informations de connexion',
+                    ]);
+                  }else{
+                    $token=$user->createToken($user)->plainTextToken;
+                    return Response::json([
+                        'status'=>false,
+                        'message'=>"success",
+                        'name'=>$user->name,
+                        'email'=>$user->email,
+                        'type'=>$user->type,
+                        'phone'=>$user->phone,
+                        'personne'=>$user->personne,
+                        'id'=>$user->id,
+                        'token'=>$token,
+                   ]);
+                  }
+             }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
 
    }
 
