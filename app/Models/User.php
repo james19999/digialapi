@@ -47,6 +47,6 @@ class User extends Authenticatable
     ];
 
     public function  subservices() {
-        return $this->belongsToMany(SubService::class,'subscriptions','user_id','sub_service_id');
+        return $this->belongsToMany(SubService::class,'subscriptions','user_id','sub_service_id')->withTimestamps ();
     }
 }

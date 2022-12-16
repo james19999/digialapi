@@ -19,6 +19,7 @@ return new class extends Migration
             $table->primary(['user_id','sub_service_id']);
             $table->string('user_id');
             $table->string('sub_service_id');
+            $table->timestamps();
         });
     }
 

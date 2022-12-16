@@ -103,7 +103,7 @@ class SubServiceController extends Controller
    if($User){
 
        $User->subservices()->sync($request->sub_service_id);
-       Mail::to('komlanahiakpor23@gmail.com')->send(new NewSubscription($User->email,$User->name,$User->phone));
+       Mail::to('komlanahiakpor23@gmail.com')->send(new NewSubscription($User->email,$User->name,$User->phone ));
        return response()->json(['Message' =>"success" ,'status'=>true,'data'=>$Users]);
    }else{
        return response()->json(['Message' =>"errors"]);
@@ -117,7 +117,7 @@ class SubServiceController extends Controller
 
 
     }
-
+   # get subservices
     public function getSubService($sub_id){
         $res = SubService::whereId($sub_id)->first();
         if ($res !== null) {
@@ -126,7 +126,7 @@ class SubServiceController extends Controller
             return null;
         }
     }
-
+  # get subscription find by user
     public function subscribptionlist($user_id){
         $response = [];
         try {
@@ -151,7 +151,7 @@ class SubServiceController extends Controller
                 ];
                 $response = [
                     'success'=>true,
-                    'message'=>"blabla",
+                    'message'=>"success",
                     'result'=>$data
                 ];
             }else{
@@ -178,7 +178,7 @@ class SubServiceController extends Controller
         #ok
         $response = [];
         try {
-            $users= User::all(); #verify if user exist, exist =true, continue
+            $users= User::orderby('created_at','DESC')->get(); #verify if user exist, exist =true, continue
             $data = [];
             $subs = [];
 
@@ -204,7 +204,7 @@ class SubServiceController extends Controller
             }
             $response = [
                 'success'=>true,
-                'message'=>"blabla",
+                'message'=>"success",
                 'result'=>$data
             ];
 
