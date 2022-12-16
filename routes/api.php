@@ -39,7 +39,8 @@ Route::group(['prefix' => 'subservice'], function() {
     Route::delete('delete/service/{id}',[SubServiceController::class,'delete']);
     Route::post('create/service',[SubServiceController::class,'create']);
 
-    Route::get('get/subscribption',[SubServiceController::class,'subscribptionlist']);
+    Route::get('get/subscribption/{id}',[SubServiceController::class,'subscribptionlist']);
+    Route::get('get/subscribptions',[SubServiceController::class,'subscribptions']);
 
 
 });

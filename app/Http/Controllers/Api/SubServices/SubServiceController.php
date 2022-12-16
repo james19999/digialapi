@@ -116,16 +116,105 @@ class SubServiceController extends Controller
           }
 
 
-     }
-    public function subscribptionlist(){
-        $Users= User::findOrfail(2);
+    }
 
-        foreach($Users->subservices as $usersub){
-
-
-                      return $usersub->pivot;
-
+    public function getSubService($sub_id){
+        $res = SubService::whereId($sub_id)->first();
+        if ($res !== null) {
+            return $res;
+        }else {
+            return null;
         }
     }
 
+    public function subscribptionlist($user_id){
+        $response = [];
+        try {
+            $user= User::where('id',$user_id)->first(); #verify if user exist, exist =true, continue
+            $data = [];
+            $subs = [];
+
+            if ($user !== null) {
+                # code...
+                $services = $user->subservices;
+                foreach($services as $service){
+                    $res =  $service->pivot['sub_service_id'];
+                    $ids = explode(',',$res); # séparer les ids
+                    foreach ($ids as $key => $id) {
+                        $sub = $this->getSubService($id);
+                        $subs[] =$sub;
+                    }
+                }
+                $data = [
+                    'users' => $user,
+                    'services' => $subs
+                ];
+                $response = [
+                    'success'=>true,
+                    'message'=>"blabla",
+                    'result'=>$data
+                ];
+            }else{
+                $response = [
+                    'success'=>false,
+                    'message'=>"user not found",
+                    'result'=>null
+                ];
+            }
+
+
+
+        } catch (\Throwable $th) {
+            $response = [
+                'success'=>false,
+                'message'=>$th->getMessage(),
+                'result'=>null
+            ];
+        }
+        return response()->json($response);
+    }
+
+    public function subscribptions (){
+        #ok
+        $response = [];
+        try {
+            $users= User::all(); #verify if user exist, exist =true, continue
+            $data = [];
+            $subs = [];
+
+            foreach ($users as $key => $user) {
+                # code...
+                if ($user !== null) {
+                    # code...
+                    $services = $user->subservices;
+                    foreach($services as $service){
+                        $res =  $service->pivot['sub_service_id'];
+                        $ids = explode(',',$res); # séparer les ids
+                        foreach ($ids as $key => $id) {
+                            $sub = $this->getSubService($id);
+                            $subs[] =$sub;
+                        }
+                    }
+                    $data[] = [
+                        'user' => $user,
+                        'services' => $subs
+                    ]; #là il recupere pour le last , donc pour eux tous, tu fais $data[] = ... donc pour chaque user, il va recuperer ses services
+
+                }
+            }
+            $response = [
+                'success'=>true,
+                'message'=>"blabla",
+                'result'=>$data
+            ];
+
+        } catch (\Throwable $th) {
+            $response = [
+                'success'=>false,
+                'message'=>$th->getMessage(),
+                'result'=>null
+            ];
+        }
+        return response()->json($response);
+    }
 }

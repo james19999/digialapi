@@ -15,12 +15,12 @@ class SubService extends Model
         'service_id',
     ];
     public function service(){
-
         return $this->belongsTo(Service::class,'service_id');
     }
 
-   public function user(){
+    public function users(){
+        return $this->belongsToMany(User::class,'subscriptions','user_id','sub_service_id');
+    }
 
-    return $this->belongsToMany(User::class);
-   }
+
 }
