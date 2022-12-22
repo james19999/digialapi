@@ -22,5 +22,8 @@ class SubService extends Model
         return $this->belongsToMany(User::class,'subscriptions','user_id','sub_service_id')->withTimestamps ();
     }
 
+     public function contrats() {
+         return $this->belongsToMany(Contact::class);
+     }
 
 }

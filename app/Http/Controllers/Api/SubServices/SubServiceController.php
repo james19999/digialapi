@@ -18,7 +18,7 @@ class SubServiceController extends Controller
     public function all (){
 
         try {
-            $Services= SubService::all();
+            $Services= SubService::with('service')->get();
             return Response::json(['SubServices'=>$Services]);
 
         } catch (\Throwable $th) {

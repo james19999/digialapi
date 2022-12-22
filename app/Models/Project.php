@@ -3,25 +3,28 @@
 namespace App\Models;
 
 use App\Models\Costumer;
-use App\Models\SubService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Contrat extends Model
+class Project extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id',
-        'code_contrat',
+
+        'name',
+        'description',
         'costumer_id',
+        'date_start',
+        'date_end',
+        'status',
     ];
 
-    public function subservicescontract() {
-        return $this->belongsToMany(SubService::class,'contrat_subservices','contrat_id');
-    }
-
-    public function costumer(){
+    public function costumer() {
 
         return $this->belongsTo(Costumer::class,'costumer_id');
+    }
+
+    public function usersdevs() {
+        return $this->belongsToMany(User::class,'project_user_devs','project_id');
     }
 }

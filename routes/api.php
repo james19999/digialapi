@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\SendMail\SendMailController;
 use App\Http\Controllers\Api\Contrat\ContratController;
+use App\Http\Controllers\Api\Projects\ProjectController;
 use App\Http\Controllers\Api\Services\ServiceController;
+use App\Http\Controllers\Api\Costumers\CostumerController;
 use App\Http\Controllers\Api\SubServices\SubServiceController;
 use App\Http\Controllers\Api\Reclamation\ReclamationController;
 
@@ -65,10 +67,13 @@ Route::prefix('authantiked')->group(function () {
     Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('create/subscribption',[SubServiceController::class,'subscribption']);
-   Route::post('create/email',[ReclamationController::class,'create_contact']);
+    Route::post('create/email',[ReclamationController::class,'create_contact']);
 
 
     Route::post('logout', [AdminController::class,'logout_user']);
+
+
+
     });
 
 });
@@ -76,6 +81,8 @@ Route::prefix('authantiked')->group(function () {
 Route::prefix('contrats')->group(function () {
 
    Route::post('create/contrat',[ContratController::class,'create_contrat']);
+   Route::post('attachesubservicetocontrat/contrat/{id}',[ContratController::class,'Attachesubservicetocontrat']);
+   Route::get('show_contrat/contrat/{id}',[ContratController::class,'show_contrat']);
 
 });
 //code... réclamation
@@ -90,6 +97,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+//admin routes for your application. These
+ //code... costumers
+Route::prefix('costumers')->group(function () {
+ Route::get('get/costumer',[CostumerController::class,'all_costumers']);
+ Route::post('create/costumer',[CostumerController::class,'create_costumers']);
+ Route::put('update/costumer/{id}',[CostumerController::class,'update_costumers']);
+ Route::delete('delete/costumer/{id}',[CostumerController::class,'delete_costumers']);
+
+ });
+ //code... projects
+Route::prefix('projects')->group(function () {
+ Route::get('get/project',[ProjectController::class,'all_projects']);
+ Route::post('create/project',[ProjectController::class,'create_projects']);
+ Route::put('update/project/{id}',[ProjectController::class,'update_projects']);
+ Route::delete('delete/project/{id}',[ProjectController::class,'delete_projects']);
+ Route::post('change/project/status/{id}',[ProjectController::class,'changestatusproject']);
+ Route::post('attachprojecttouserdev/project/{id}',[ProjectController::class,'AttachProjectToUserDev']);
+ Route::get('project/end/date/{id}',[ProjectController::class,'projectenddate']);
+
+ });
+
+
+//end admin routes for your application
 
 Route::get('link', function () {
 

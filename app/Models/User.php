@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password',
         'sub_service_id',
         'personne',
-        'phone'
+        'phone',
+        'user_id',
     ];
 
     /**
@@ -48,5 +49,10 @@ class User extends Authenticatable
 
     public function  subservices() {
         return $this->belongsToMany(SubService::class,'subscriptions','user_id','sub_service_id')->withTimestamps ();
+    }
+
+
+    public function projects() {
+        return $this->belongsToMany(Project::class,'project_user_devs','user_id');
     }
 }

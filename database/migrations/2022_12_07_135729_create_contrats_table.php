@@ -17,6 +17,9 @@ return new class extends Migration
         Schema::create('contrats', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
+            $table->string('costumer_id')->nullable();
+            $table->string('amount');
+            $table->date('created');
             $table->string('code_contrat');
             $table->timestamps();
         });

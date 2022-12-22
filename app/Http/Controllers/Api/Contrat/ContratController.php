@@ -36,7 +36,34 @@ class ContratController extends Controller
         }
     }
 
+     public function Attachesubservicetocontrat(Request $request,$id) {
 
+         try {
+             $Contrats=Contrat::findOrfail($id);
+               if($Contrats){
+                $Contrats->subservicescontract()->sync($request->sub_service_id);
+                  return true;
+               }else{
+                   return false;
+               }
+             //code...
+         } catch (\Throwable $th) {
+             //throw $th;
+         }
+     }
+
+     public function show_contrat($id){
+         try {
+            $Contrats =Contrat::findOrfail($id);
+            if ($Contrats){
+                return Response::json(['Contrat'=> $Contrats->with(['subservicescontract','costumer'])->get()]);
+
+            }
+            //code...
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+     }
 
 
     public function str_rancode($length=4){
