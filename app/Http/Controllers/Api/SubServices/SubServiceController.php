@@ -195,7 +195,7 @@ class SubServiceController extends Controller
                             $subs[] =$sub;
                         }
                     }
-                    $data[] = [
+                    $subs[] = [
                         'user' => $user,
                         'services' => $subs
                     ]; #là il recupere pour le last , donc pour eux tous, tu fais $data[] = ... donc pour chaque user, il va recuperer ses services
@@ -205,7 +205,7 @@ class SubServiceController extends Controller
             $response = [
                 'success'=>true,
                 'message'=>"success",
-                'result'=>$data
+                'result'=>$subs
             ];
 
         } catch (\Throwable $th) {
