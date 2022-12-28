@@ -54,21 +54,28 @@ class SendMailController extends Controller
 
 //update password
     public function update (Request $request ,$user_email){
+             try {
+                 //code...
+                 $user =User::where('email',$user_email)->get()->first();
+                  if ($user) {
+                      # code...
+                      $user->password=Hash::make($request->password) ;
+                      $user->save();
+                    return Response::json([
+                    "status"=>false,
+                    "message"=>"success"
+               ]);
 
-         $user =User::where('email',$user_email)->get()->first();
-          if ($user) {
-              # code...
-              $user->update(['password' =>Hash::make($request->password)]);
-            return Response::json([
-            "status"=>false,
-            "message"=>"success"
-       ]);
-
-          }else{
-              return Response::json([
-                   "message"=>"error updating"
-              ]);
-          }
+                  }else{
+                      return Response::json([
+                           "message"=>"error updating"
+                      ]);
+                  }
+             } catch (\Throwable $th) {
+                return Response::json([
+                    "message"=>$th->getMessage()
+               ]);
+             }
 
     }
 
