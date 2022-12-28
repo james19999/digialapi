@@ -53,7 +53,7 @@ Route::prefix('emails')->group(function () {
 
     Route::post('email/create',[SendMailController::class,'sendemail']);
     Route::post('email/verifycode',[SendMailController::class,'verifycode']);
-    Route::post('email/update/{user_email}',[SendMailController::class,'update']);
+    Route::put('email/update/{user_email}',[SendMailController::class,'update']);
 
 
     });

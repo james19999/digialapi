@@ -60,7 +60,8 @@ class SendMailController extends Controller
               # code...
               $user->update(['password' =>Hash::make($request->password)]);
             return Response::json([
-            "status"=>false
+            "status"=>false,
+            "message"=>"success"
        ]);
 
           }else{
