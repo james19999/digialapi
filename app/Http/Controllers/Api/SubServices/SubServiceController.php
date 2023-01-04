@@ -62,7 +62,7 @@ class SubServiceController extends Controller
 
                      $validator =Validator::make($request->all(),[
                           'name'=>'required',
-                       'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                    //    'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
                      ]);
              //code...

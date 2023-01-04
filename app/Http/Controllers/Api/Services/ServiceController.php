@@ -30,7 +30,7 @@ class ServiceController extends Controller
               try {
                 $validator =Validator::make($request->all(),[
                     'name'=>'required|unique:services,name',
-                    'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+                    // 'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
 
                ]);
                //code...
@@ -43,7 +43,7 @@ class ServiceController extends Controller
                     $filename= date('YmdHi').$file->getClientOriginalName();
                     $file-> move(public_path('images'), $filename);
                     // $data['image']= $filename;
-                    Service::create(['name'=>$request->name ,'img'=>$filename]);
+                    Service::create(['name'=>$request->name]);
                     return response()->json(['Message' =>'service create']);
                 }
                }
