@@ -41,8 +41,8 @@ Route::group(['prefix' => 'subservice'], function() {
     Route::delete('delete/service/{id}',[SubServiceController::class,'delete']);
     Route::post('create/service',[SubServiceController::class,'create']);
 
-    Route::get('get/subscribption/{id}',[SubServiceController::class,'subscribptionlist']);
-    Route::get('get/subscribptions',[SubServiceController::class,'subscribptions']);
+    Route::get('get/subscription/{id}',[SubServiceController::class,'subscriptionlist']);
+    Route::get('get/subscriptions',[SubServiceController::class,'subscriptions']);
 
 
 });
@@ -125,7 +125,8 @@ Route::prefix('projects')->group(function () {
 Route::get('link', function () {
 
     return Response::json([
-        'tel'=>93266004,
+        'tel'=>92212530,
+        'tels'=>96698256,
         'telwha'=>'https://chat.whatsapp.com/INvSZoiQFpbB35B1apmBtg',
         'facebook'=>'http://www.gamil.com',
         'map'=>'http://www.gamil.com'

@@ -30,14 +30,22 @@ class ServiceController extends Controller
               try {
                 $validator =Validator::make($request->all(),[
                     'name'=>'required|unique:services,name',
+                    'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+
                ]);
                //code...
                if($validator->fails()){
                  return response()->json(['Message' =>$validator->getMessageBag()]);
 
                }else{
-                   Service::create(['name'=>$request->name]);
-                   return response()->json(['Message' =>'service create']);
+                if($request->file('img')){
+                    $file= $request->file('img');
+                    $filename= date('YmdHi').$file->getClientOriginalName();
+                    $file-> move(public_path('images'), $filename);
+                    // $data['image']= $filename;
+                    Service::create(['name'=>$request->name ,'img'=>$filename]);
+                    return response()->json(['Message' =>'service create']);
+                }
                }
               } catch (\Throwable $th) {
                   //throw $th;
@@ -54,6 +62,7 @@ class ServiceController extends Controller
 
                      $validator =Validator::make($request->all(),[
                           'name'=>'required',
+                          'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
                      ]);
              //code...
              if($validator->fails()){
@@ -61,9 +70,14 @@ class ServiceController extends Controller
 
              }else{
                   $Services= Service::findOrfail($id);
-
-                  $Services->update(['name'=>$request->name]);
-                 return response()->json(['Message' =>'service update']);
+                  if($request->file('img')){
+                    $file= $request->file('image');
+                    $filename= date('YmdHi').$file->getClientOriginalName();
+                    $file-> move(public_path('images'), $filename);
+                    // $data['image']= $filename;
+                    $Services->update(['name'=>$request->name ,'img'=>$filename]);
+                   return response()->json(['Message' =>'service update']);
+                }
              }
          } catch (\Throwable $th) {
              //throw $th;

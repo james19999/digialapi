@@ -13,13 +13,14 @@ class SubService extends Model
     protected $fillable = [
         'name',
         'service_id',
+        'img',
     ];
     public function service(){
         return $this->belongsTo(Service::class,'service_id');
     }
 
     public function users(){
-        return $this->belongsToMany(User::class,'subscriptions','user_id','sub_service_id')->withTimestamps ();
+        return $this->belongsToMany(User::class,'subscriptions','sub_service_id')->withTimestamps ();
     }
 
      public function contrats() {

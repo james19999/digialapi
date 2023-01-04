@@ -35,6 +35,8 @@ class SubServiceController extends Controller
                 $validator =Validator::make($request->all(),[
                     'name'=>'required|unique:sub_services,name',
                     'service_id'=>'required',
+                    'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+
                ]);
                //code...
                if($validator->fails()){
@@ -60,6 +62,8 @@ class SubServiceController extends Controller
 
                      $validator =Validator::make($request->all(),[
                           'name'=>'required',
+                       'img' =>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+
                      ]);
              //code...
              if($validator->fails()){
@@ -101,8 +105,10 @@ class SubServiceController extends Controller
       $User=User::findOrfail($Users);
 
    if($User){
-
-       $User->subservices()->sync($request->sub_service_id);
+        // $explode = explode("," ,$request->sub_service_id);
+        //   foreach($explode as $ex){
+        // }
+        $User->subservices()->sync($request->sub_service_id);
        Mail::to('komlanahiakpor23@gmail.com')->send(new NewSubscription($User->email,$User->name,$User->phone ));
        return response()->json(['Message' =>"success" ,'status'=>true,'data'=>$Users]);
    }else{
@@ -127,7 +133,7 @@ class SubServiceController extends Controller
         }
     }
   # get subscription find by user
-    public function subscribptionlist($user_id){
+    public function subscriptionlist($user_id){
         $response = [];
         try {
             $user= User::where('id',$user_id)->first(); #verify if user exist, exist =true, continue
@@ -174,7 +180,7 @@ class SubServiceController extends Controller
         return response()->json($response);
     }
 
-    public function subscribptions (){
+    public function subscriptions (){
         #ok
         $response = [];
         try {
@@ -186,12 +192,14 @@ class SubServiceController extends Controller
                 # code...
                 if ($user !== null) {
                     # code...
+                    // $services = implode(",", $user->subservices);
                     $services = $user->subservices;
                     foreach($services as $service){
                         $res =  $service->pivot['sub_service_id'];
-                        $ids = explode(',',$res); # séparer les ids
+                       $ids = explode(',',$res); # séparer les ids
                         foreach ($ids as $key => $id) {
-                            $sub = $this->getSubService($id);
+
+                             $sub = $this->getSubService($id);
                             $subs[] =$sub;
                         }
                     }
@@ -210,7 +218,7 @@ class SubServiceController extends Controller
 
         } catch (\Throwable $th) {
             $response = [
-                'success'=>false,
+                'errors'=>false,
                 'message'=>$th->getMessage(),
                 'result'=>null
             ];
