@@ -38,14 +38,14 @@ class ServiceController extends Controller
                  return response()->json(['Message' =>$validator->getMessageBag()]);
 
                }else{
-                if($request->file('img')){
-                    $file= $request->file('img');
-                    $filename= date('YmdHi').$file->getClientOriginalName();
-                    $file-> move(public_path('images'), $filename);
-                    // $data['image']= $filename;
-                    Service::create(['name'=>$request->name]);
-                    return response()->json(['Message' =>'service create']);
-                }
+                // if($request->file('img')){
+                //     $file= $request->file('img');
+                //     $filename= date('YmdHi').$file->getClientOriginalName();
+                //     $file-> move(public_path('images'), $filename);
+                //     // $data['image']= $filename;
+                // }
+                Service::create(['name'=>$request->name]);
+                return response()->json(['Message' =>'service create']);
                }
               } catch (\Throwable $th) {
                   //throw $th;

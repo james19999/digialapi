@@ -123,12 +123,35 @@ Route::prefix('projects')->group(function () {
 //end admin routes for your application
 
 Route::get('link', function () {
+    $about =" Digital services est une entreprise spécialisée dans le développement des projets informatiques. Elle apporte des solutions informatiques aux entrepreneurs et les aide à mieux se positionner sur le marché. Digital Services c’est plus de compétences et de professionnalisme. Nous travaillons depuis nos débuts avec des valeurs d’intégrité et de confiance.
+    Digital Services regroupe en son sein plusieurs compétences issues de diverses couches sociales et de divers domaines de compétence. Leur devise quotidienne est et demeure : « travail, passion et rigueur ».
+    Nous fournissons depuis notre création des prestations en création et gestion de sites internet, la création et le développement d’applications mobile et web ; la conception des logiciels de gestion ; les services en infographie ; la maintenance informatique et la communication digitale.
+    Nous mettons nos clients et nos partenaires au centre de nos projets et nous définissons nos objectifs d’après nos engagements réciproques.
+    Nos experts s’assurent toujours du temps de livraison et de la qualité des rendus.
+    Accompagnement
+    Nous accompagnons les entreprises ayant des projets, et nous leur proposons et les aidons à y associer le volet informatique.
+    Nous intervenons dans la vie des entreprises depuis leur naissance et nous participons activement à leur croissance.
+    ";
+    $adventage ="
+    Nous utilisons pour chaque projet la technologie adaptée et ceci dans le respect des règles d’éthique et de déontologie. Nous essayons toujours d’impliquer nos clients sur les différentes phases des projets, et nous les rassurons en amont que leur projet seront exécutés efficacement tant d’un point de vue esthétique qu’ergonomique.
+    Nous assurons aussi en surplus un pack d’avantages tels que répartis :
 
+    -	Une garantie de sécurité et de maintenance de 1 mois sur chaque projet réalisé
+    -	Nous garantissons la préservation du secret professionnel sur chaque projet réalisé, aussi bien en cours de son exécution et qu’à sa fin.
+    -	Nous assurons l’hébergement des projets
+    -	Chaque projet réalisé à droit à deux semaines de communication digitale
+    -	Une adresse professionnelle est associée à chaque projet
+    -	Nous affectons un nom de domaine gratuit à chaque projet web
+    -	Nous prenons en charge les frais d’hébergement des applications sur Play store
+
+    ";
     return Response::json([
         'tel'=>92212530,
         'tels'=>96698256,
         'telwha'=>'https://chat.whatsapp.com/INvSZoiQFpbB35B1apmBtg',
         'facebook'=>'http://www.gamil.com',
-        'map'=>'http://www.gamil.com'
+        'map'=>'http://www.gamil.com',
+        'about'=>$about,
+        'adventage '=>$adventage
     ]);
 });
