@@ -124,6 +124,7 @@ Route::prefix('projects')->group(function () {
 
 Route::get('link', function () {
     $about =" Digital services est une entreprise spécialisée dans le développement des projets informatiques. Elle apporte des solutions informatiques aux entrepreneurs et les aide à mieux se positionner sur le marché. Digital Services c’est plus de compétences et de professionnalisme. Nous travaillons depuis nos débuts avec des valeurs d’intégrité et de confiance.
+
     Digital Services regroupe en son sein plusieurs compétences issues de diverses couches sociales et de divers domaines de compétence. Leur devise quotidienne est et demeure : « travail, passion et rigueur ».
     Nous fournissons depuis notre création des prestations en création et gestion de sites internet, la création et le développement d’applications mobile et web ; la conception des logiciels de gestion ; les services en infographie ; la maintenance informatique et la communication digitale.
     Nous mettons nos clients et nos partenaires au centre de nos projets et nous définissons nos objectifs d’après nos engagements réciproques.
