@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\Admin\AdminController;
 use App\Http\Controllers\SendMail\SendMailController;
 use App\Http\Controllers\Api\Contrat\ContratController;
@@ -107,6 +108,15 @@ Route::prefix('costumers')->group(function () {
  Route::delete('delete/costumer/{id}',[CostumerController::class,'delete_costumers']);
 
  });
+ //product
+ 
+ Route::prefix('products')->group(function () {
+ Route::get('get/product',[ProductController::class,'getproducts']);
+ Route::post('create/product',[ProductController::class,'createproduct']);
+ Route::post('update/product/{id}',[ProductController::class,'updateproduct']);
+ });
+
+
  //code... projects
 Route::prefix('projects')->group(function () {
  Route::get('get/project',[ProjectController::class,'all_projects']);
