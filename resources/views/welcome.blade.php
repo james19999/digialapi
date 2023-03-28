@@ -9,7 +9,15 @@
   <title>Digital Services</title>
   <meta content="Digital services" name="description">
   <meta content="Digital services" name="keywords">
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7R1YNV7KTM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-7R1YNV7KTM');
+</script>
   <!-- Favicons -->
   <link href="assets/img/logo.jpg" rel="icon">
   <link href="assets/img/logo.jpg" rel="apple-touch-icon">
@@ -54,7 +62,7 @@
           <li style="font-weight: 900" ><a   class="nav-link scrollto active" href="#hero">Accueil</a></li>
           <li style="font-weight: 900" ><a   class="nav-link scrollto" href="#about">A propos</a></li>
           <li style="font-weight: 900" ><a   class="nav-link scrollto" href="#services">Services</a></li>
-          <li style="font-weight: 900" ><a   class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
+          <li style="font-weight: 900" ><a   class="nav-link scrollto" href="#portfolio">Nos produits</a></li>
           <li style="font-weight: 900" ><a   class="nav-link scrollto" href="#team">Blog</a></li>
 
           <li style="font-weight: 900"><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -91,25 +99,35 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
+
+
+
+
           <div class="row">
-            <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+
+             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
                 <img src="assets/img/b2.jpg" class="img-fluid" alt="" data-aos="zoom-in">
               </div>
-              <div class="col-lg-6  pt-lg-0">
-                <h3 data-aos="fade-up">Qui sommes-nous.</h3>
-                <p style="color: black ;font-weight: 300 ;font-size: 16px" data-aos="fade-up" data-aos-delay="100">
-                    Digital services est une entreprise spécialisée dans le développement des projets informatiques. Elle apporte des solutions informatiques aux entrepreneurs et les aide à mieux se positionner sur le marché. Digital Services c’est plus de compétences et de professionnalisme. Nous travaillons depuis nos débuts avec des valeurs d’intégrité et de confiance.
-                    <br>
-                    Nous fournissons depuis notre création des prestations en création et gestion de sites internet, la création et le développement d’applications mobile et web ; la conception des logiciels de gestion ; les services en infographie ; la maintenance informatique et la communication digitale.
-                    Nous mettons nos clients et nos partenaires au centre de nos projets et nous définissons nos objectifs d’après nos engagements réciproques.
-                    Nos experts s’assurent toujours du temps de livraison et de la qualité des rendus.
 
-                </p>
-                </div>
+              <div class="col-lg-6  pt-lg-0">
+                        <h3 data-aos="fade-up">Qui sommes-nous.</h3>
+                        <p style="color: black ;font-weight: 300 ;font-size: 18px" data-aos="fade-up" data-aos-delay="100">
+                            DIGITAL SERVICES est une entreprise spécialisée dans les prestations de services informatiques, offrant une expertise de pointe en matière de maintenance et de services illimités
+
+                            Un partenaire fiable et performant pour tous vos projets informatiques.
+                            <br>
+                        </p>
+
+                      <div>
+
+                    </div>
+
+              </div>
           </div>
+
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
-                <img src="assets/img/b3.jpg" class="img-fluid" alt="" data-aos="zoom-in">
+                <img src="assets/img/b3.jpg" class="img-fluid"  alt="" data-aos="zoom-in">
               </div>
               <div class="col-lg-6  pt-lg-0">
                 <div class="row">
@@ -147,23 +165,7 @@
                     </div>
                   </div>
                 </div>
-
           </div>
-        {{-- <div class="row justify-content-between">
-
-          <div class="col-lg-6  pt-lg-0">
-            <h3 data-aos="fade-up">Qui sommes-nous.</h3>
-            <p style="color: black ;font-weight: 300 ;font-size: 18px" data-aos="fade-up" data-aos-delay="100">
-                Digital services est une entreprise spécialisée dans le développement des projets informatiques. Elle apporte des solutions informatiques aux entrepreneurs et les aide à mieux se positionner sur le marché. Digital Services c’est plus de compétences et de professionnalisme. Nous travaillons depuis nos débuts avec des valeurs d’intégrité et de confiance.
-                <br>
-                Nous fournissons depuis notre création des prestations en création et gestion de sites internet, la création et le développement d’applications mobile et web ; la conception des logiciels de gestion ; les services en infographie ; la maintenance informatique et la communication digitale.
-                Nous mettons nos clients et nos partenaires au centre de nos projets et nous définissons nos objectifs d’après nos engagements réciproques.
-                Nos experts s’assurent toujours du temps de livraison et de la qualité des rendus.
-
-            </p>
-
-          </div>
-        </div> --}}
 
       </div>
     </section><!-- End About Section -->
@@ -223,7 +225,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2 style="font-weight: 900;color: black  " >Portfolio</h2>
+          <h2 style="font-weight: 900;color: black  " >Nos produits</h2>
           {{-- <p>Check out our beautifull portfolio</p> --}}
         </div>
 
@@ -242,45 +244,47 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/digital.jpeg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/digital.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-              </div>
-            </div>
+                <img src="assets/img/portfolio/digital.jpeg" class="img-fluid img-thumbnail" alt="">
+                <div class="portfolio-links">
+                    <a href="assets/img/portfolio/digital.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bi bi-plus"></i></a>
+                    {{-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> --}}
+                </div>
+                <div class="portfolio-info">
+                    {{-- <h4>App 1</h4>
+                    <p>App</p> --}}
+                </div>
+                </div>
           </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                    <img src="assets/img/portfolio/portfolo-4.jpg" class="img-fluid  img-thumbnail" alt="">
+                    <div class="portfolio-links">
+                        <a href="assets/img/portfolio/portfolo-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
+                        {{-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> --}}
+                    </div>
+                    <div class="portfolio-info">
+                        {{-- <h4>App 2</h4>
+                        <p>App</p> --}}
+                    </div>
+                    </div>
+                </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/tiket.jpeg" class="img-fluid" alt="">
+              <img src="assets/img/portfolio/tiket.jpeg" class="img-fluid img-thumbnail" alt="">
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/tiket.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
+                {{-- <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a> --}}
               </div>
               <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
+                {{-- <h4>Web 3</h4>
+                <p>Web</p> --}}
               </div>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolo-4.png" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolo-4.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bi bi-plus"></i></a>
-                <a href="portfolio-details.html" title="More Details"><i class="bi bi-link"></i></a>
-              </div>
-              <div class="portfolio-info">
-                <h4>App 2</h4>
-                <p>App</p>
-              </div>
-            </div>
-          </div>
+
 
         </div>
 
@@ -292,7 +296,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title" >
-          <h2 style="color:white" >Télécharger notre application</h2>
+          <h2 style="color:white" >Téléchargez</h2>
+          <br>
           <p  style="color:white" >Nous vous invitons à télécharger notre application pour profiter de tous les avantages qu'elle offre.</p>
            <div >
                <a href="">
@@ -317,17 +322,17 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="member">
-              <img src="assets/img/team/team-1.png" class="img-fluid" alt="">
+              <img src="assets/img/team/team-1.png" class="img-fluid img-thumbnail" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
+                  {{-- <h4>Walter White</h4>
+                  <span>Chief Executive Officer</span> --}}
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -335,17 +340,17 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="member">
-              <img src="assets/img/team/team-2.png" class="img-fluid" alt="">
+              <img src="assets/img/team/team-2.png" class="img-fluid img-thumbnail " alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
+                  {{-- <h4>Sarah Jhonson</h4>
+                  <span>Product Manager</span> --}}
                 </div>
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
+                  {{-- <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a> --}}
                 </div>
               </div>
             </div>
@@ -353,36 +358,36 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
             <div class="member">
-              <img src="assets/img/team/team-3.png" class="img-fluid" alt="">
+              <img src="assets/img/team/team-3.png" class="img-fluid  img-thumbnail " alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
+                  {{-- <h4>William Anderson</h4>
+                  <span>CTO</span> --}}
                 </div>
-                <div class="social">
+                {{-- <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="member">
-              <img src="assets/img/team/team-4.png" class="img-fluid" alt="">
+              <img src="assets/img/team/team-4.png" class="img-fluid  img-thumbnail " alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
+                  {{-- <h4>Amanda Jepson</h4>
+                  <span>Accountant</span> --}}
                 </div>
-                <div class="social">
+                {{-- <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
@@ -428,27 +433,27 @@
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4 style="font-weight: 500 ;color: black " >Adresse:</h4>
+                <h4 style="font-weight: 200 ;color: black " >Adresse:</h4>
                 <p >Lomé-TOGO Aného Togokome</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4 style="font-weight: 500 ;color: black ">Email:</h4>
-                <p>info@example.com</p>
+                <h4 style="font-weight: 200 ;color: black ">Email:</h4>
+                <p>info@digital-services-home.com</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
-                <h4 style="font-weight: 500 ;color: black ">Téléphone:</h4>
-                <p>+1 5589 55488 55s</p>
+                <h4 style="font-weight: 200 ;color: black ">Téléphone:</h4>
+                <p>+228 92 21 25  30</p>
               </div>
             </div>
 
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="#" method="post" role="form" class="php-email-form">
+            <form  role="form" class="php-email-form">
               <div class="row">
                 <div class="form-group col-md-6">
                   <label style="font-weight: 300 ;color: black " for="name">Nom</label>
@@ -506,8 +511,8 @@
             <p>
               Lomé-TOGO <br>
                Aného Togokome<br>
-              <strong>Téléphone:</strong> +1 5589 55488 55<br>
-              <strong>E-mail:</strong> info@example.com<br>
+              <strong>Téléphone:</strong> +228 92 21 25  30<br>
+              <strong>E-mail:</strong>info@digital-services-home.com<br>
             </p>
           </div>
 
