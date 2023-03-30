@@ -88,6 +88,7 @@
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
           <img src="assets/img/hero-img.svg" class="img-fluid animated" alt="">
+
         </div>
       </div>
     </div>
@@ -102,7 +103,6 @@
 
 
 
-
           <div class="row">
 
              <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
@@ -114,9 +114,11 @@
                         <p style="color: black ;font-weight: 300 ;font-size: 18px" data-aos="fade-up" data-aos-delay="100">
                             DIGITAL SERVICES est une entreprise spécialisée dans les prestations de services informatiques, offrant une expertise de pointe en matière de maintenance et de services illimités
 
-                            Un partenaire fiable et performant pour tous vos projets informatiques.
+                            un partenaire fiable et performant pour tous vos projets informatiques.
                             <br>
                         </p>
+
+
 
                       <div>
 
@@ -128,6 +130,7 @@
           <div class="row">
             <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
                 <img src="assets/img/b3.jpg" class="img-fluid"  alt="" data-aos="zoom-in">
+
               </div>
               <div class="col-lg-6  pt-lg-0">
                 <div class="row">
